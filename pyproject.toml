@@ -1,0 +1,45 @@
+[project]
+name = "lstm-predict"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Isabela",email = "isabelatrindade94@hotmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi (>=0.126.0,<0.127.0)",
+    "uvicorn (>=0.38.0,<0.39.0)",
+    "scikit-learn (>=1.8.0,<2.0.0)",
+    "pandas (>=2.3.3,<3.0.0)",
+    "numpy (>=1.26.0,<2.0.0)",
+    "yfinance (>=0.2.66,<0.3.0)",
+    "matplotlib (>=3.10.8,<4.0.0)",
+    "tensorflow (>=2.18.0,<2.19.0)",
+    "python-dotenv (>=1.2.1,<2.0.0)",
+    "python-multipart (>=0.0.21,<0.0.22)"
+]
+
+[tool.poetry]
+packages = [{include = "lstm_predict", from = "src"}]
+
+[[tool.poetry.source]]
+name = "pytorch_cu121"
+url = "https://download.pytorch.org/whl/cu121"
+priority = "explicit"
+
+
+[tool.poetry.group.dev.dependencies]
+mlflow = "^3.8.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "ipykernel (>=7.1.0,<8.0.0)",
+    "pytest (>=9.0.2,<10.0.0)",
+    "httpx (>=0.28.1,<0.29.0)",
+    "mlflow (>=3.8.0,<4.0.0)"
+]
